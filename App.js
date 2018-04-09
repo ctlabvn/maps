@@ -86,7 +86,7 @@ export default class App extends Component<Props> {
           <Left>
             <Thumbnail source={require('./pexels-photo-415829.jpeg')} />
             <Body>
-              <Title>Nguyen Anh Tuan</Title>
+              <Text>Nguyen Anh Tuan</Text>
               <Text note>Jumping</Text>
             </Body>
           </Left>
