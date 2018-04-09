@@ -22,6 +22,7 @@ import Container from './theme/components/Container';
 import Content from './theme/components/Content';
 import Button from './theme/components/Button';
 
+console.disableYellowBox = true;
 const data = [
   {
     id: 1
