@@ -137,8 +137,16 @@ export default class App extends Component<Props> {
                   longitude: -122.4596065 + index
                 },
                 {
-                  latitude: 37.8025259 + index,
-                  longitude: -122.4351431 + index
+                  latitude: 37.8025759 + index,
+                  longitude: -122.4351731 + index
+                },
+                {
+                  latitude: 37.8025859 + index,
+                  longitude: -122.4351831 + index
+                },
+                {
+                  latitude: 37.8025959 + index,
+                  longitude: -122.4351931 + index
                 }
               ]}
               strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
