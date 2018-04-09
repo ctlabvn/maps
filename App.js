@@ -4,12 +4,10 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, { Component, Consumer } from 'react';
 import { Platform, StyleSheet, FlatList } from 'react-native';
 import MapView, { Polyline } from 'react-native-maps';
 import {
-  Container,
-  Content,
   ListItem,
   Text,
   Thumbnail,
@@ -17,9 +15,12 @@ import {
   Title,
   Card,
   CardItem,
-  Button,
-  Body
+  Body,
+  Header
 } from 'native-base';
+import Container from './theme/components/Container';
+import Content from './theme/components/Content';
+import Button from './theme/components/Button';
 
 const data = [
   {
@@ -77,7 +78,7 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+class App extends Component<Props> {
   renderMap = ({ item, index }) => {
     const a = true;
     return (
@@ -164,9 +165,7 @@ export default class App extends Component<Props> {
         </CardItem>
         <CardItem footer>
           <Left>
-            <Button transparent>
-              <Text>Comment</Text>
-            </Button>
+            <Button title="Comment" onPress={() => alert('comment')} />
           </Left>
         </CardItem>
       </Card>
@@ -174,17 +173,24 @@ export default class App extends Component<Props> {
   };
   render() {
     return (
-      <Container>
-        <Content>
-          <FlatList
-            data={data}
-            key="v"
-            keyExtractor={(item, index) => `${item.id}${index}`}
-            renderItem={this.renderMap}
-            initialNumToRender={2}
-          />
-        </Content>
-      </Container>
+      <Content>
+        <Header>
+          <Left>
+            <Button title="Theme" onPress={() => this.props.toggleTheme()} />
+          </Left>
+          <Body>
+            <Title>Maps example</Title>
+          </Body>
+        </Header>
+        <FlatList
+          data={data}
+          key="v"
+          keyExtractor={(item, index) => `${item.id}${index}`}
+          renderItem={this.renderMap}
+          initialNumToRender={2}
+        />
+        <Button title="Change theme" onPress={() => alert('change theme')} />
+      </Content>
     );
   }
 }
@@ -207,3 +213,5 @@ const styles = StyleSheet.create({
     marginBottom: 5
   }
 });
+
+export default Container(App);
